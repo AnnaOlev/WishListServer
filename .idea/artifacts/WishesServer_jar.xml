@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WishesServer:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WishesServer_jar</output-path>
+    <root id="archive" name="WishesServer.jar">
+      <element id="module-output" name="WishesServer" />
+    </root>
+  </artifact>
+</component>

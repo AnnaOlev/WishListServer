@@ -1,0 +1,11 @@
+server\WishServer.class
+models\WishList.class
+dao\ListElementDao.class
+models\User.class
+service\WishListService.class
+service\UserService.class
+dao\UserDao.class
+dao\WishListDao.class
+service\ListElementService.class
+models\ListElement.class
+utils\HibernateSessionFactoryUtil.class

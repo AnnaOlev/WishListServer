@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="WishesServer" target="8" />
+      <module name="WishesServer" target="10" />
     </bytecodeTargetLevel>
   </component>
 </project>

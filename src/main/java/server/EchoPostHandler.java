@@ -2,9 +2,14 @@ package server;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
+import models.ListElement;
 import models.User;
+import models.WishList;
+import service.ListElementService;
 import service.UserService;
+import service.WishListService;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -25,7 +30,7 @@ public class EchoPostHandler implements HttpHandler {
             System.out.println(query);
         parseQuery(query, parameters);
 
-        if (parameters.containsKey("username")) {
+        if (parameters.get("type").equals("auth")) {
 
             String responseString = URLEncoder.encode("Авторизация неудачна", StandardCharsets.UTF_8);
             UserService userService = new UserService();
@@ -35,16 +40,7 @@ public class EchoPostHandler implements HttpHandler {
                 if (user.getPassword().equals(parameters.get("password"))) {
                     responseString = URLEncoder.encode("Авторизация успешна", StandardCharsets.UTF_8);
                 }
-            /*User user = new User("annaolev", "05042000");
-            UserService userService = new UserService();
-            WishList wishList = new WishList(2, "новый год", "forOther");
-            wishList.setUser(user);
-            WishListService wishListService = new WishListService();
-            ListElement listElement = new ListElement(5, parameters.get("title").toString(), parameters.get("text").toString());
-            wishList.addElement(listElement);
-            wishListService.updateWishList(wishList);
-            userService.updateUser(user);*/
-            //это пример работы с бд, который потом будет тусить не тут
+
             // send response
             StringBuilder response = new StringBuilder();
             response.append(responseString);
@@ -56,7 +52,7 @@ public class EchoPostHandler implements HttpHandler {
             os.close();
             }
 
-        else if (parameters.containsKey("newusername")) {
+        else if (parameters.get("type").equals("registration")) {
             UserService userService = new UserService();
             User user;
             user = userService.findUser(parameters.get("newusername").toString());
@@ -75,5 +71,41 @@ public class EchoPostHandler implements HttpHandler {
             os.write(response.toString().getBytes());
             os.close();
         }
+
+        else if (parameters.get("type").equals("newList")) {
+            UserService userService = new UserService();
+            WishListService wishListService = new WishListService();
+
+            User user = userService.findUser(parameters.get("username").toString());
+            WishList wishList = new WishList(Integer.parseInt(parameters.get("id").toString()), parameters.get("title").toString(),
+                    parameters.get("forWho").toString());
+            wishList.setUser(user);
+            wishListService.saveWishList(wishList);
+            //userService.updateUser(user);
+            StringBuilder response = new StringBuilder();
+            response.append(URLEncoder.encode("Список добавлен", StandardCharsets.UTF_8));
+            he.sendResponseHeaders(200, response.length());
+            OutputStream os = he.getResponseBody();
+            os.write(response.toString().getBytes());
+            os.close();
+        }
+
+        else if (parameters.get("type").equals("newItem")) {
+            ListElement listElement = new ListElement(Integer.parseInt(parameters.get("id").toString()),
+                    parameters.get("title").toString(), parameters.get("text").toString());
+            WishListService wishListService = new WishListService();
+            WishList wishList = wishListService.findWishList(Integer.parseInt(parameters.get("listId").toString()));
+            listElement.setWishList(wishList);
+            ListElementService listElementService = new ListElementService();
+            listElementService.saveListElement(listElement);
+            StringBuilder response = new StringBuilder();
+            response.append(URLEncoder.encode("Элемент добавлен", StandardCharsets.UTF_8));
+            he.sendResponseHeaders(200, response.length());
+            OutputStream os = he.getResponseBody();
+            os.write(response.toString().getBytes());
+            os.close();
+        }
+
+
     }
 }

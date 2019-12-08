@@ -7,34 +7,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d54d2c36-a34a-4af2-a301-8e5d9e513fa5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/EchoGetHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/EchoPostHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/server/RootHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WishesServer.iml" beforeDir="false" afterPath="$PROJECT_DIR$/WishesServer.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/server/WishServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/WishServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoPostHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoPostHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/ListElementDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/ListElementDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/WishListDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/WishListDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/ListElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ListElement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/WishList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/WishList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/WishServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/WishServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/ListElementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/ListElementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/service/WishListService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/service/WishListService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utils/HibernateSessionFactoryUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utils/HibernateSessionFactoryUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/server/EchoPostHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/EchoPostHandler.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -56,6 +33,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowDB Browser.ShowToolbar" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

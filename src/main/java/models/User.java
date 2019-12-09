@@ -63,8 +63,8 @@ public class User {
     @Override
     public String toString() {
         return "User " +
-                ", login='" + login +
-                ", password='" + password +
+                ", login=" + login +
+                ", password=" + password +
                 ", wishLists=" + wishLists;
     }
 }

@@ -60,4 +60,8 @@ public class ListElement {
                 ", elementInfo='" + elementInfo +
                 ", wishList=" + wishList;
     }
+
+    public String toStringResponseElem() {
+        return elementName + "," + elementInfo + "," + wishList.getId();
+    }
 }

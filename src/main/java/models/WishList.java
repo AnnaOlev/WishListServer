@@ -19,7 +19,7 @@ public class WishList {
     @OneToMany(mappedBy = "wishList", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ListElement> listElements;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
     @JoinColumn(name = "user_login")
     private User user;
 
@@ -31,6 +31,10 @@ public class WishList {
     }
 
     public WishList() {
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getListName() {
@@ -81,5 +85,9 @@ public class WishList {
                 ", listName='" + listName +
                 ", listForWho='" + listForWho +
                 ", listElements=" + listElements;
+    }
+
+    public String toStringResponse() {
+        return listName + "," + listForWho;
     }
 }

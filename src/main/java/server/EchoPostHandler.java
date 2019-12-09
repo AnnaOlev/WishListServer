@@ -8,12 +8,12 @@ import models.WishList;
 import service.ListElementService;
 import service.UserService;
 import service.WishListService;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static server.RootHandler.parseQuery;
@@ -50,7 +50,7 @@ public class EchoPostHandler implements HttpHandler {
             OutputStream os = he.getResponseBody();
             os.write(response.toString().getBytes());
             os.close();
-            }
+        }
 
         else if (parameters.get("type").equals("registration")) {
             UserService userService = new UserService();
@@ -74,14 +74,13 @@ public class EchoPostHandler implements HttpHandler {
 
         else if (parameters.get("type").equals("newList")) {
             UserService userService = new UserService();
-            WishListService wishListService = new WishListService();
-
             User user = userService.findUser(parameters.get("username").toString());
             WishList wishList = new WishList(Integer.parseInt(parameters.get("id").toString()), parameters.get("title").toString(),
                     parameters.get("forWho").toString());
             wishList.setUser(user);
-            wishListService.saveWishList(wishList);
-            //userService.updateUser(user);
+            user.addList(wishList);
+            userService.updateUser(user);
+            System.out.println(userService.findUser(parameters.get("username").toString()).toString());
             StringBuilder response = new StringBuilder();
             response.append(URLEncoder.encode("Список добавлен", StandardCharsets.UTF_8));
             he.sendResponseHeaders(200, response.length());
@@ -91,6 +90,7 @@ public class EchoPostHandler implements HttpHandler {
         }
 
         else if (parameters.get("type").equals("newItem")) {
+
             ListElement listElement = new ListElement(Integer.parseInt(parameters.get("id").toString()),
                     parameters.get("title").toString(), parameters.get("text").toString());
             WishListService wishListService = new WishListService();
@@ -106,6 +106,64 @@ public class EchoPostHandler implements HttpHandler {
             os.close();
         }
 
+        else if (parameters.get("type").equals("downloadLists")) {
+            String responseString = "empty";
+            List<WishList> wishLists;
+            User user;
+            UserService userService = new UserService();
+            user = userService.findUser(parameters.get("user").toString());
+            wishLists = user.getWishLists();
 
+            StringBuilder response = new StringBuilder();
+            if (!wishLists.isEmpty()) {
+                for (WishList wishList : wishLists) {
+                    response.append(wishList.toStringResponse()).append(";");
+                }
+                responseString = response.toString();
+            }
+            System.out.println(responseString);
+            responseString = URLEncoder.encode(responseString, StandardCharsets.UTF_8);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(responseString);
+            he.sendResponseHeaders(200, stringBuilder.length());
+            OutputStream os = he.getResponseBody();
+            os.write(stringBuilder.toString().getBytes());
+            os.close();
+        }
+
+        else if (parameters.get("type").equals("downloadItems")) {
+            String responseString = "empty";
+            List<WishList> wishLists;
+            List<ListElement> listElements = new ArrayList<>();
+            User user;
+            UserService userService = new UserService();
+            user = userService.findUser(parameters.get("user").toString());
+            wishLists = user.getWishLists();
+            for (WishList wishList : wishLists) {
+                if (!wishList.getListElements().isEmpty())
+                    listElements.addAll(wishList.getListElements());
+            }
+
+            StringBuilder response = new StringBuilder();
+            if (!listElements.isEmpty()) {
+                for (ListElement listElement : listElements) {
+                    response.append(listElement.toStringResponseElem()).append(";");
+                }
+                responseString = response.toString();
+            }
+            System.out.println(responseString);
+            responseString = URLEncoder.encode(responseString, StandardCharsets.UTF_8);
+
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(responseString);
+            he.sendResponseHeaders(200, stringBuilder.length());
+            OutputStream os = he.getResponseBody();
+            os.write(stringBuilder.toString().getBytes());
+            os.close();
+
+        }
     }
 }
+
+

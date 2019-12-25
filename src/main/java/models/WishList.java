@@ -16,10 +16,10 @@ public class WishList {
     @Column (name = "\"listForWho\"")
     private String listForWho;
 
-    @OneToMany(mappedBy = "wishList", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "wishList", orphanRemoval = true)
     private List<ListElement> listElements;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_login")
     private User user;
 

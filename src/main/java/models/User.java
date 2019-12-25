@@ -15,7 +15,7 @@ public class User {
     @Column (name = "password")
     private String password;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
     private List<WishList> wishLists;
 
     public User() {

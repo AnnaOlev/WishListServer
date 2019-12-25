@@ -8,6 +8,7 @@ import models.WishList;
 import service.ListElementService;
 import service.UserService;
 import service.WishListService;
+
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -44,8 +45,6 @@ public class EchoPostHandler implements HttpHandler {
             // send response
             StringBuilder response = new StringBuilder();
             response.append(responseString);
-            /*for (String key : parameters.keySet())
-                response.append(key).append(" = ").append(URLEncoder.encode(parameters.get(key).toString(), StandardCharsets.UTF_8)).append("\n");*/
             he.sendResponseHeaders(200, response.length());
             OutputStream os = he.getResponseBody();
             os.write(response.toString().getBytes());
@@ -78,8 +77,8 @@ public class EchoPostHandler implements HttpHandler {
             WishList wishList = new WishList(Integer.parseInt(parameters.get("id").toString()), parameters.get("title").toString(),
                     parameters.get("forWho").toString());
             wishList.setUser(user);
-            user.addList(wishList);
-            userService.updateUser(user);
+            WishListService wishListService = new WishListService();
+            wishListService.saveWishList(wishList);
             System.out.println(userService.findUser(parameters.get("username").toString()).toString());
             StringBuilder response = new StringBuilder();
             response.append(URLEncoder.encode("Список добавлен", StandardCharsets.UTF_8));
@@ -132,6 +131,24 @@ public class EchoPostHandler implements HttpHandler {
             os.close();
         }
 
+        else if (parameters.get("type").equals("deleteList")) {
+            UserService userService = new UserService();
+            User user = userService.findUser(parameters.get("username").toString());
+            List<WishList> wishLists = user.getWishLists();
+            for (WishList w : wishLists)
+                if (w.getId() == Integer.parseInt(parameters.get("id").toString()))
+                    user.removeList(w);
+            userService.updateUser(user);
+            System.out.println(userService.findUser(parameters.get("username").toString()).toString());
+
+            StringBuilder response = new StringBuilder();
+            response.append(URLEncoder.encode("Элемент удален", StandardCharsets.UTF_8));
+            he.sendResponseHeaders(200, response.length());
+            OutputStream os = he.getResponseBody();
+            os.write(response.toString().getBytes());
+            os.close();
+        }
+
         else if (parameters.get("type").equals("downloadItems")) {
             String responseString = "empty";
             List<WishList> wishLists;
@@ -161,7 +178,6 @@ public class EchoPostHandler implements HttpHandler {
             OutputStream os = he.getResponseBody();
             os.write(stringBuilder.toString().getBytes());
             os.close();
-
         }
     }
 }

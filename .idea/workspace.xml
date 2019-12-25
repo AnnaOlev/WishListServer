@@ -8,23 +8,15 @@
   <component name="ChangeListManager">
     <list default="true" id="d54d2c36-a34a-4af2-a301-8e5d9e513fa5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WishesServer/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WishesServer/server/WishServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/models/ListElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/ListElement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/models/WishList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/models/WishList.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/EchoPostHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/EchoPostHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/server/WishServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/server/WishServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT-jar-with-dependencies.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT-jar-with-dependencies.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/WishServer-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/UserDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/ListElement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/ListElement.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/models/WishList.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/WishList.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/server/EchoPostHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/EchoPostHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/server/WishServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/server/WishServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
